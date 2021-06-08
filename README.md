@@ -18,6 +18,15 @@ This template can be used to quickly start a new custom js action repository.  C
   - [ ] Update any preferences you might have
 - CODEOWNERS
   - [ ] Update as appropriate
+- Repository Settings
+  - [ ] On the *Options* tab check the box to *Automatically delete head branches*
+  - [ ] On the *Options* tab update the repository's visibility
+  - [ ] On the *Branches* tab add a branch protection rule
+    - [ ] Check *Require pull request reviews before merging*
+    - [ ] Check *Dismiss stale pull request approvals when new commits are pushed*
+    - [ ] Check *Require review from Code Owners*
+    - [ ] Check *Include Administrators*
+  - [ ] On the *Manage Access* tab add the appropriate groups
 
 ## Inputs
 | Parameter | Is Required | Description           |
