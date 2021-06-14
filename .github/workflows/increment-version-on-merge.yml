@@ -36,7 +36,7 @@ jobs:
             }
             catch (error) {
               newTag = 'v1.0.0';
-              core.info('An error occurred getting the tags for the repo.  It most likely does not have any tags so use 1.0.0.');
+              core.info('An error occurred getting the tags for the repo.  It most likely does not have any tags to use. Defaulting to v1.0.0.');
               core.info(error);
             }
 
