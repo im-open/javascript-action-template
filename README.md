@@ -29,20 +29,22 @@ This template can be used to quickly start a new custom js action repository.  C
   - [ ] On the *Manage Access* tab add the appropriate groups
 - Topics
   - [ ] Add a topic tag by going to the About section on the main page and clicking edit.  The topic tag should be one of the following:
-    | Topic Tag | Usage                                    | 
-    | ----------|------------------------------------------|
-    | az        | For actions related to Azure             |
-    | code      | For actions related to building code     |
-    | certs     | For actions related to certificates      |
-    | db        | For actions related to databases         |
-    | git       | For actions related to Git               |
-    | iis       | For actions related to IIS               |
-    | svc       | For actions related to Windows Services  |
-    | jira      | For actions related to Jira              |
-    | meta      | For actions related to running workflows |
-    | pagerduty | For actions related to PagerDuty         |
-    | test      | For actions related to testing           |
-    | tf        | For actions related to Terraform         |
+    | Topic Tag      | Usage                                    | 
+    | ---------------|------------------------------------------|
+    | az             | For actions related to Azure             |
+    | code           | For actions related to building code     |
+    | certs          | For actions related to certificates      |
+    | db             | For actions related to databases         |
+    | git            | For actions related to Git               |
+    | iis            | For actions related to IIS               |
+    | microsoft-teams| For actions related to Microsoft Teams   |
+    | svc            | For actions related to Windows Services  |
+    | jira           | For actions related to Jira              |
+    | meta           | For actions related to running workflows |
+    | pagerduty      | For actions related to PagerDuty         |
+    | test           | For actions related to testing           |
+    | tf             | For actions related to Terraform         |
+  - [ ] Add any additional topics for an action if they apply    
     
 
 ## Inputs
