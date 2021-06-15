@@ -27,8 +27,9 @@ This template can be used to quickly start a new custom js action repository.  C
     - [ ] Check *Require review from Code Owners*
     - [ ] Check *Include Administrators*
   - [ ] On the *Manage Access* tab add the appropriate groups
-- Topics
-  - [ ] Add a topic tag by going to the About section on the main page and clicking edit.  The topic tag should be one of the following:
+- About Section (accessed on the main page of the repo, click the gear icon to edit)
+  - [ ] The repo should have a short description of what it is for
+  - [ ] Add one of the following topic tags:
     | Topic Tag      | Usage                                    | 
     | ---------------|------------------------------------------|
     | az             | For actions related to Azure             |
