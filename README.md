@@ -1,15 +1,16 @@
-# custom-action-template
+# javascript-action-template
 
 This template can be used to quickly start a new custom js action repository.  Click the `Use this template` button at the top to get started.
 
 ## TODOs
 - Readme
   - [ ] Update the Inputs section with the correct action inputs
+  - [ ] Update the Outputs section with the correct action outputs
   - [ ] Update the Example section with the correct usage   
 - package.json
   - [ ] Update the `name` with the new action value
 - main.js
-  - [ ] Implement your custom action
+  - [ ] Implement your custom javascript action
 - action.yml
   - [ ] Fill in the correct name, description, inputs and outputs
 - check-for-unstaged-changes.sh
@@ -30,30 +31,34 @@ This template can be used to quickly start a new custom js action repository.  C
 - About Section (accessed on the main page of the repo, click the gear icon to edit)
   - [ ] The repo should have a short description of what it is for
   - [ ] Add one of the following topic tags:
-    | Topic Tag      | Usage                                    | 
-    | ---------------|------------------------------------------|
-    | az             | For actions related to Azure             |
-    | code           | For actions related to building code     |
-    | certs          | For actions related to certificates      |
-    | db             | For actions related to databases         |
-    | git            | For actions related to Git               |
-    | iis            | For actions related to IIS               |
-    | microsoft-teams| For actions related to Microsoft Teams   |
-    | svc            | For actions related to Windows Services  |
-    | jira           | For actions related to Jira              |
-    | meta           | For actions related to running workflows |
-    | pagerduty      | For actions related to PagerDuty         |
-    | test           | For actions related to testing           |
-    | tf             | For actions related to Terraform         |
+    | Topic Tag       | Usage                                    |
+    | --------------- | ---------------------------------------- |
+    | az              | For actions related to Azure             |
+    | code            | For actions related to building code     |
+    | certs           | For actions related to certificates      |
+    | db              | For actions related to databases         |
+    | git             | For actions related to Git               |
+    | iis             | For actions related to IIS               |
+    | microsoft-teams | For actions related to Microsoft Teams   |
+    | svc             | For actions related to Windows Services  |
+    | jira            | For actions related to Jira              |
+    | meta            | For actions related to running workflows |
+    | pagerduty       | For actions related to PagerDuty         |
+    | test            | For actions related to testing           |
+    | tf              | For actions related to Terraform         |
   - [ ] Add any additional topics for an action if they apply    
     
 
 ## Inputs
 | Parameter | Is Required | Description           |
-| ----------|-------------|-----------------------|
+| --------- | ----------- | --------------------- |
 | `input-1` | true        | Description goes here |
 | `input-2` | false       | Description goes here |
 
+## Outputs
+| Output     | Description           |
+| ---------- | --------------------- |
+| `output-1` | Description goes here |
 
 ## Example
 
@@ -63,20 +68,18 @@ jobs:
   job1:
     runs-on: [self-hosted, ubuntu-20.04]
     steps:
-      step1: 
-        - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-        - name: Add Step Here
-          uses: im-open/this-repo@v1
-          with:
-            input-1: 'abc'
-            input-2: '123
+      - name: Add Step Here
+        uses: im-open/this-repo@v1
+        with:
+          input-1: 'abc'
+          input-2: '123
 ```
 
 ## Recompiling
 
-If changes are made to the action's code in this repository, or its dependencies, you will need to re-compile the
-action.
+If changes are made to the action's code in this repository, or its dependencies, you will need to re-compile the action.
 
 ```sh
 # Installs dependencies and bundles the code
