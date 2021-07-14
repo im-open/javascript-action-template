@@ -13,15 +13,13 @@ This template can be used to quickly start a new custom js action repository.  C
   - [ ] Implement your custom javascript action
 - action.yml
   - [ ] Fill in the correct name, description, inputs and outputs
-- check-for-unstaged-changes.sh
-  - [ ] If you encounter a permission denied error when the build.yml workflow runs, execute the following command: `git update-index --chmod=+x ./check-for-unstaged-changes.sh`
 - .prettierrc.json
   - [ ] Update any preferences you might have
 - CODEOWNERS
   - [ ] Update as appropriate
 - Repository Settings
   - [ ] On the *Options* tab check the box to *Automatically delete head branches*
-  - [ ] On the *Options* tab update the repository's visibility
+  - [ ] On the *Options* tab update the repository's visibility (must be done by an org owner)
   - [ ] On the *Branches* tab add a branch protection rule
     - [ ] Check *Require pull request reviews before merging*
     - [ ] Check *Dismiss stale pull request approvals when new commits are pushed*
@@ -50,10 +48,10 @@ This template can be used to quickly start a new custom js action repository.  C
     
 
 ## Inputs
-| Parameter | Is Required | Description           |
-| --------- | ----------- | --------------------- |
-| `input-1` | true        | Description goes here |
-| `input-2` | false       | Description goes here |
+| Parameter | Is Required | Default | Description           |
+| --------- | ----------- | ------- | --------------------- |
+| `input-1` | true        |         | Description goes here |
+| `input-2` | false       |         | Description goes here |
 
 ## Outputs
 | Output     | Description           |
@@ -71,7 +69,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Add Step Here
-        uses: im-open/this-repo@v1
+        uses: im-open/this-repo@v1.0.0
         with:
           input-1: 'abc'
           input-2: '123
