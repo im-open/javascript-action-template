@@ -292,6 +292,6 @@ var require_core = __commonJS({
   }
 });
 
-// main.js
+// src/main.js
 var core = require_core();
 core.info('Hello!');

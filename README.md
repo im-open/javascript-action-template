@@ -6,10 +6,10 @@ This template can be used to quickly start a new custom js action repository.  C
 - Readme
   - [ ] Update the Inputs section with the correct action inputs
   - [ ] Update the Outputs section with the correct action outputs
-  - [ ] Update the Example section with the correct usage   
+  - [ ] Update the Usage Example section with the correct usage   
 - package.json
   - [ ] Update the `name` with the new action value
-- main.js
+- src/main.js
   - [ ] Implement your custom javascript action
 - action.yml
   - [ ] Fill in the correct name, description, inputs and outputs
@@ -45,6 +45,7 @@ This template can be used to quickly start a new custom js action repository.  C
     | test            | For actions related to testing           |
     | tf              | For actions related to Terraform         |
   - [ ] Add any additional topics for an action if they apply    
+  - [ ] The Packages and Environments boxes can be unchecked
     
 
 ## Inputs
@@ -58,13 +59,13 @@ This template can be used to quickly start a new custom js action repository.  C
 | ---------- | --------------------- |
 | `output-1` | Description goes here |
 
-## Example
+## Usage Examples
 
 ```yml
 # TODO: Fill in the correct usage
 jobs:
   job1:
-    runs-on: [self-hosted, ubuntu-20.04]
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
 
