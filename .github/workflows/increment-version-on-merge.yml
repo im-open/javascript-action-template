@@ -19,4 +19,6 @@ jobs:
       - name: Increment the version
         uses: im-open/git-version-lite@v1.0.0
         with:
-          tag-prefix: 'v'
+          create-ref: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          default-release-type: major
