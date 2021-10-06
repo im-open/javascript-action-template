@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-// const core = require('@actions/github');  // TODO:  run an npm install for this if using
+// const github = require('@actions/github');  // TODO:  run an npm install for this if using
 
 // When used, this requiredArgOptions will cause the action to error if a value has not been provided.
 const requiredArgOptions = {
