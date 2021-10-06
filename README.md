@@ -2,6 +2,14 @@
 
 This template can be used to quickly start a new custom js action repository.  Click the `Use this template` button at the top to get started.
 
+- [Inputs](#inputs)
+- [Outputs](#outputs)
+- [Usage Examples](#usage-examples)
+- [Recompiling](#recompiling)
+- [Incrementing the Version](#incrementing-the-version)
+- [Code of Conduct](#code-of-conduct)
+- [License](#license)
+
 ## TODOs
 - Readme
   - [ ] Update the Inputs section with the correct action inputs
@@ -46,34 +54,31 @@ This template can be used to quickly start a new custom js action repository.  C
     | tf              | For actions related to Terraform         |
   - [ ] Add any additional topics for an action if they apply    
   - [ ] The Packages and Environments boxes can be unchecked
-    
 
+  
 ## Inputs
 | Parameter | Is Required | Default | Description           |
 | --------- | ----------- | ------- | --------------------- |
-| `input-1` | true        |         | Description goes here |
-| `input-2` | false       |         | Description goes here |
+| `input`   | true        |         | Description goes here |
 
 ## Outputs
-| Output     | Description           |
-| ---------- | --------------------- |
-| `output-1` | Description goes here |
+| Output   | Description           |
+| -------- | --------------------- |
+| `output` | Description goes here |
 
 ## Usage Examples
 
 ```yml
-# TODO: Fill in the correct usage
 jobs:
-  job1:
+  jobname:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
 
-      - name: Add Step Here
-        uses: im-open/this-repo@v1.0.0
+      - name: ''
+        uses: im-open/thisrepo@v1.0.0 # TODO:  fix the action name
         with:
-          input-1: 'abc'
-          input-2: '123
+          input: ''
 ```
 
 ## Recompiling
@@ -91,6 +96,17 @@ npm run bundle
 These commands utilize [esbuild](https://esbuild.github.io/getting-started/#bundling-for-node) to bundle the action and
 its dependencies into a single file located in the `dist` folder.
 
+## Incrementing the Version
+
+This action uses [git-version-lite] to examine commit messages to determine whether to perform a major, minor or patch increment on merge.  The following table provides the fragment that should be included in a commit message to active different increment strategies.
+| Increment Type | Commit Message Fragment                     |
+| -------------- | ------------------------------------------- |
+| major          | +semver:breaking                            |
+| major          | +semver:major                               |
+| minor          | +semver:feature                             |
+| minor          | +semver:minor                               |
+| patch          | *default increment type, no comment needed* |
+
 ## Code of Conduct
 
 This project has adopted the [im-open's Code of Conduct](https://github.com/im-open/.github/blob/master/CODE_OF_CONDUCT.md).
@@ -98,3 +114,5 @@ This project has adopted the [im-open's Code of Conduct](https://github.com/im-o
 ## License
 
 Copyright &copy; 2021, Extend Health, LLC. Code released under the [MIT license](LICENSE).
+
+[git-version-lite]: https://github.com/im-open/git-version-lite
