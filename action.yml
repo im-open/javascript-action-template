@@ -6,9 +6,6 @@ inputs:
   input-1:
     description: 'Add a description here'
     required: true
-  input-2:
-    description: 'Add a description here'
-    required: false
 
 outputs:
   output-1:

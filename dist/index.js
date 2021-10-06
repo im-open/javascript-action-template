@@ -294,4 +294,3 @@ var require_core = __commonJS({
 
 // src/main.js
 var core = require_core();
-core.info('Hello!');
