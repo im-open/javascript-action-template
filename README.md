@@ -5,8 +5,9 @@ This template can be used to quickly start a new custom js action repository.  C
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [Usage Examples](#usage-examples)
-- [Recompiling](#recompiling)
-- [Incrementing the Version](#incrementing-the-version)
+- [Contributing](#contributing)
+  - [Recompiling](#recompiling)
+  - [Incrementing the Version](#incrementing-the-version)
 - [Code of Conduct](#code-of-conduct)
 - [License](#license)
 
@@ -62,9 +63,9 @@ This template can be used to quickly start a new custom js action repository.  C
 | `input`   | true        |         | Description goes here |
 
 ## Outputs
-| Output   | Description           |
-| -------- | --------------------- |
-| `output` | Description goes here |
+| Output   | Description           | Possible Values |
+| -------- | --------------------- | --------------- |
+| `output` | Description goes here |                 |
 
 ## Usage Examples
 
@@ -81,7 +82,14 @@ jobs:
           input: ''
 ```
 
-## Recompiling
+## Contributing
+When creating new PRs please ensure:
+1. The action has been recompiled.  See the [Recompiling](#recompiling) section below for more details.
+2. For major or minor changes, at least one of the commit messages contains the appropriate `+semver:` keywords listed under [Incrementing the Version](#incrementing-the-version).
+3. The `README.md` example has been updated with the new version.  See [Incrementing the Version](#incrementing-the-version).
+4. The action code does not contain sensitive information.
+
+### Recompiling
 
 If changes are made to the action's code in this repository, or its dependencies, you will need to re-compile the action.
 
@@ -96,7 +104,7 @@ npm run bundle
 These commands utilize [esbuild](https://esbuild.github.io/getting-started/#bundling-for-node) to bundle the action and
 its dependencies into a single file located in the `dist` folder.
 
-## Incrementing the Version
+### Incrementing the Version
 
 This action uses [git-version-lite] to examine commit messages to determine whether to perform a major, minor or patch increment on merge.  The following table provides the fragment that should be included in a commit message to active different increment strategies.
 | Increment Type | Commit Message Fragment                     |
