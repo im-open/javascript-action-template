@@ -2,6 +2,8 @@
 
 This template can be used to quickly start a new custom js action repository.  Click the `Use this template` button at the top to get started.
 
+## Index
+
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [Usage Examples](#usage-examples)
@@ -83,6 +85,7 @@ jobs:
 ```
 
 ## Contributing
+
 When creating new PRs please ensure:
 1. The action has been recompiled.  See the [Recompiling](#recompiling) section below for more details.
 2. For major or minor changes, at least one of the commit messages contains the appropriate `+semver:` keywords listed under [Incrementing the Version](#incrementing-the-version).
