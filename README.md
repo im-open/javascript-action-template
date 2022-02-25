@@ -120,10 +120,10 @@ This action uses [git-version-lite] to examine commit messages to determine whet
 
 ## Code of Conduct
 
-This project has adopted the [im-open's Code of Conduct](https://github.com/im-open/.github/blob/master/CODE_OF_CONDUCT.md).
+This project has adopted the [im-open's Code of Conduct](https://github.com/im-open/.github/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
-Copyright &copy; 2021, Extend Health, LLC. Code released under the [MIT license](LICENSE).
+Copyright &copy; 2022, Extend Health, LLC. Code released under the [MIT license](LICENSE).
 
 [git-version-lite]: https://github.com/im-open/git-version-lite
