@@ -14,10 +14,11 @@ This template can be used to quickly start a new custom js action repository.  C
 - [License](#license)
 
 ## TODOs
-- Readme
+
+- README.md
   - [ ] Update the Inputs section with the correct action inputs
   - [ ] Update the Outputs section with the correct action outputs
-  - [ ] Update the Usage Example section with the correct usage   
+  - [ ] Update the Usage Example section with the correct usage
 - package.json
   - [ ] Update the `name` with the new action value
 - src/main.js
@@ -58,13 +59,14 @@ This template can be used to quickly start a new custom js action repository.  C
   - [ ] Add any additional topics for an action if they apply    
   - [ ] The Packages and Environments boxes can be unchecked
 
-  
 ## Inputs
+
 | Parameter | Is Required | Default | Description           |
 | --------- | ----------- | ------- | --------------------- |
 | `input`   | true        |         | Description goes here |
 
 ## Outputs
+
 | Output   | Description           | Possible Values |
 | -------- | --------------------- | --------------- |
 | `output` | Description goes here |                 |
@@ -76,7 +78,7 @@ jobs:
   jobname:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: ''
         uses: im-open/thisrepo@v1.0.0 # TODO:  fix the action name
@@ -87,6 +89,7 @@ jobs:
 ## Contributing
 
 When creating new PRs please ensure:
+
 1. The action has been recompiled.  See the [Recompiling](#recompiling) section below for more details.
 2. For major or minor changes, at least one of the commit messages contains the appropriate `+semver:` keywords listed under [Incrementing the Version](#incrementing-the-version).
 3. The `README.md` example has been updated with the new version.  See [Incrementing the Version](#incrementing-the-version).
