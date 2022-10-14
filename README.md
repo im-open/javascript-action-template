@@ -56,8 +56,9 @@ This template can be used to quickly start a new custom js action repository.  C
     | pagerduty       | For actions related to PagerDuty         |
     | test            | For actions related to testing           |
     | tf              | For actions related to Terraform         |
-  - [ ] Add any additional topics for an action if they apply    
+  - [ ] Add any additional topics for an action if they apply
   - [ ] The Packages and Environments boxes can be unchecked
+- Search for any remaining TODOs and address them.
 
 ## Inputs
 
