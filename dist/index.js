@@ -2431,3 +2431,5 @@ Support boolean input list: \`true | True | TRUE | false | False | FALSE\``);
 
 // src/main.js
 var core = require_core();
+async function run() {}
+run();
