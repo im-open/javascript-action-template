@@ -14,11 +14,7 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.operating-system }}
-    strategy:
-      fail-fast: false
-      matrix:
-        operating-system: [ubuntu-latest, windows-latest, macOS-latest]
+    runs-on: ubuntu-latest
     
     steps:
       - name: Checkout
@@ -32,29 +28,36 @@ jobs:
         with:
           node-version: 16.x
 
+      # If this step results in changes, they will be committed in the last step
       - name: Recompile and Format action
         run: npm run build
-
-      # These last steps only need to be done once
-      # per commit.  Run them on the ubuntu job.
-      - name: Get the next version for the readme
-        if: matrix.operating-system == 'ubuntu-latest'
+      
+      - name: Check for code changes to the action
+        id: action
+        uses: im-open/check-if-pr-has-code-changes@v1.0.0
+        with:
+          files-with-code: 'action.yml,package.json,package-lock.json'
+          folders-with-code: 'src,dist'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Get the next version for the readme if there are code changes to the action
+        if: steps.action.outputs.HAS_CODE_CHANGES == 'true'
         id: version
         uses: im-open/git-version-lite@v2.1.2
         with:
           create-ref: false
           default-release-type: major
 
-      - name: Update readme with next version
-        if: matrix.operating-system == 'ubuntu-latest'
+      - name: Update readme with next version if there are code changes to the action
+        if: steps.action.outputs.HAS_CODE_CHANGES == 'true'
         uses: im-open/update-action-version-in-file@v1.0.0
         with:
           file-to-update: './README.md'
           action-name:  ${{ github.repository }}
           updated-version: ${{ steps.version.outputs.NEXT_VERSION }}
 
-      - name: Commit unstaged readme/recompile changes
-        if: matrix.operating-system == 'ubuntu-latest'
+      - name: Commit unstaged readme/recompile changes if there are code changes to the action
+        if: steps.action.outputs.HAS_CODE_CHANGES == 'true'
         run: |
           if [[ "$(git status --porcelain)" != "" ]]; then
             echo "There are changes to commit"
