@@ -91,14 +91,18 @@ jobs:
 
 When creating new PRs please ensure:
 
-1. The action has been recompiled.  See the [Recompiling](#recompiling) section below for more details.
-2. For major or minor changes, at least one of the commit messages contains the appropriate `+semver:` keywords listed under [Incrementing the Version](#incrementing-the-version).
-3. The `README.md` example has been updated with the new version.  See [Incrementing the Version](#incrementing-the-version).
-4. The action code does not contain sensitive information.
+1. For major or minor changes, at least one of the commit messages contains the appropriate `+semver:` keywords listed under [Incrementing the Version](#incrementing-the-version).
+1. The action code does not contain sensitive information.
 
-### Recompiling
+When a pull request is created, a workflow will run that will recompile the action and push a commit to the branch if the PR author has not done so. The usage examples in the README.md will also be updated with the next version if they have not been updated manually.
 
-If changes are made to the action's code in this repository, or its dependencies, you will need to re-compile the action.
+1. The action has been recompiled. See the [Recompiling](#recompiling-manually) section below for more details.
+1. The `README.md` example has been updated with the new version. See [Incrementing the Version](#incrementing-the-version).
+1. This should happen automatically with most pull requests as part of the build workflow.  There may be some instances where the bot does not have permission to push back to the branch though so these steps should be done manually on those branches.
+
+### Recompiling Manually
+
+If changes are made to the action's code in this repository, or its dependencies, the action can be re-compiled by running the following command:
 
 ```sh
 # Installs dependencies and bundles the code
