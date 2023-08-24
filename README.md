@@ -8,8 +8,9 @@ This template can be used to quickly start a new custom js action repository.  C
 - [Outputs](#outputs)
 - [Usage Examples](#usage-examples)
 - [Contributing](#contributing)
-  - [Recompiling](#recompiling-manually)
   - [Incrementing the Version](#incrementing-the-version)
+  - [Recompiling Manually](#recompiling-manually)
+  - [Updating the README.md](#updating-the-readmemd)
 - [Code of Conduct](#code-of-conduct)
 - [License](#license)
 
@@ -45,7 +46,7 @@ This template can be used to quickly start a new custom js action repository.  C
   - [ ] The repo should have a short description of what it is for
   - [ ] Add one of the following topic tags:
     | Topic Tag       | Usage                                    |
-    | --------------- | ---------------------------------------- |
+    |-----------------|------------------------------------------|
     | az              | For actions related to Azure             |
     | code            | For actions related to building code     |
     | certs           | For actions related to certificates      |
@@ -66,13 +67,13 @@ This template can be used to quickly start a new custom js action repository.  C
 ## Inputs
 
 | Parameter | Is Required | Default | Description           |
-| --------- | ----------- | ------- | --------------------- |
+|-----------|-------------|---------|-----------------------|
 | `input`   | true        |         | Description goes here |
 
 ## Outputs
 
 | Output   | Description           | Possible Values |
-| -------- | --------------------- | --------------- |
+|----------|-----------------------|-----------------|
 | `output` | Description goes here |                 |
 
 ## Usage Examples
@@ -92,20 +93,29 @@ jobs:
 
 ## Contributing
 
-When creating new PRs please ensure:
+When creating new PRs from a fork please review the following items:
+| PR Contribution Requirements/Tasks                                                                                                                    | Required<br/>for Branches | Required<br/>for Forks |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------:|:----------------------:|
+| The action code does not contain sensitive information.                                                                                               |            Yes            |          Yes           |
+| For major or minor changes, at least one of the commit messages contains the appropriate `+semver:` keywords listed under [Incrementing the Version]. |            Yes            |          Yes           |
+| The action has been re-compiled.  See [Recompiling Manually] for more details.                                                                        |            No*            |          Yes           |
+| The README.md action versions have been updated.  See [Updating the README.md] for details.                                                           |            No*            |          Yes           |
 
-1. For major or minor changes, at least one of the commit messages contains the appropriate `+semver:` keywords listed under [Incrementing the Version](#incrementing-the-version).
-1. The action code does not contain sensitive information.
+\* When a pull request is created from a branch, the build workflow will automatically recompile the action, update the README.md with the next version and push a commit to the branch if those changes have not already been made.
 
-When a pull request is created and there are changes to code-specific files and folders, the build workflow will run and it will recompile the action and push a commit to the branch if the PR author has not done so. The usage examples in the README.md will also be updated with the next version if they have not been updated manually. The following files and folders contain action code and will trigger the automatic updates:
+### Incrementing the Version
 
-- action.yml
-- package.json
-- package-lock.json
-- src/\*\*
-- dist/\*\*
+This repo uses [git-version-lite] in its build and PR merge workflows to examine commit messages to determine whether to perform a major, minor or patch increment on merge.  The following table provides the fragment that should be included in a commit message to active different increment strategies.
 
-There may be some instances where the bot does not have permission to push changes back to the branch though so these steps should be done manually for those branches. See [Recompiling Manually](#recompiling-manually) and [Incrementing the Version](#incrementing-the-version) for more details.
+| Increment Type | Commit Message Fragment                     |
+|----------------|---------------------------------------------|
+| major          | +semver:breaking                            |
+| major          | +semver:major                               |
+| minor          | +semver:feature                             |
+| minor          | +semver:minor                               |
+| patch          | *default increment type, no comment needed* |
+
+If a contributor is unsure what the next version will be, create a PR and the first build workflow that runs will calculate the value.
 
 ### Recompiling Manually
 
@@ -119,22 +129,19 @@ npm run build
 npm run bundle
 ```
 
-These commands utilize [esbuild](https://esbuild.github.io/getting-started/#bundling-for-node) to bundle the action and
-its dependencies into a single file located in the `dist` folder.
+These commands utilize [esbuild] to bundle the action and its dependencies into a single file located in the `dist` folder.
 
-### Incrementing the Version
+This step does not need to be completed if only ancillary files like the README.md have been changed.
 
-Both the build and PR merge workflows will use the strategies below to determine what the next version will be.  If the build workflow was not able to automatically update the README.md action examples with the next version, the README.md should be updated manually as part of the PR using that calculated version.
+If a pull request is made from a branch, this step will be automatically performed by the build workflow unless the PR author has already done so.  Pull requests made from forked repositories will need to perform this step manually.  
 
-This action uses [git-version-lite] to examine commit messages to determine whether to perform a major, minor or patch increment on merge.  The following table provides the fragment that should be included in a commit message to active different increment strategies.
+### Updating the README.md
 
-| Increment Type | Commit Message Fragment                     |
-| -------------- | ------------------------------------------- |
-| major          | +semver:breaking                            |
-| major          | +semver:major                               |
-| minor          | +semver:feature                             |
-| minor          | +semver:minor                               |
-| patch          | *default increment type, no comment needed* |
+If changes are made to the action's source code, the README.md file should be updated to reflect the next version of the action.  Each instance of the action in the examples should be updated.  This helps users know what the latest tag is without having to navigate to the Tags page of the repository.
+
+This step does not need to be completed if only ancillary files like the README.md have been changed.
+
+If a pull request is made from a branch, this step will be automatically performed by the build workflow unless the PR author has already done so.  Pull requests made from forked repositories will need to perform this step manually.  See [Incrementing the Version] for details on how to determine what the next version will be.
 
 ## Code of Conduct
 
@@ -142,6 +149,10 @@ This project has adopted the [im-open's Code of Conduct](https://github.com/im-o
 
 ## License
 
-Copyright &copy; 2022, Extend Health, LLC. Code released under the [MIT license](LICENSE).
+Copyright &copy; 2023, Extend Health, LLC. Code released under the [MIT license](LICENSE).
 
 [git-version-lite]: https://github.com/im-open/git-version-lite
+[esbuild]: https://esbuild.github.io/getting-started/#bundling-for-node
+[Incrementing the Version]: #incrementing-the-version
+[Recompiling Manually]: #recompiling-manually
+[Updating the README.md]: #updating-the-readmemd
