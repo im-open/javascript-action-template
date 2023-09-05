@@ -7,7 +7,7 @@ on:
   # This workflow uses the pull_request trigger which prevents write permissions on the
   # GH_TOKEN and secrets access from public forks.  This should remain as a pull_request
   # trigger to minimize the access public forks have in the repository.  The reduced
-  # permissions is adequate but does mean re-compiles and readme changes will have to be
+  # permissions are adequate but do mean that re-compiles and readme changes will have to be
   # made manually by the PR author.  These auto-updates could be done by this workflow
   # for branches but in order to re-trigger a PR build (which is needed for status checks),
   # we would make the commits with a different user and their PAT.  To minimize exposure
