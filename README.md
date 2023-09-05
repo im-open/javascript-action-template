@@ -9,6 +9,7 @@ This template can be used to quickly start a new custom js action repository.  C
 - [Usage Examples](#usage-examples)
 - [Contributing](#contributing)
   - [Incrementing the Version](#incrementing-the-version)
+  - [Source Code Changes](#source-code-changes)
   - [Recompiling Manually](#recompiling-manually)
   - [Updating the README.md](#updating-the-readmemd)
 - [Code of Conduct](#code-of-conduct)
@@ -93,19 +94,16 @@ jobs:
 
 ## Contributing
 
-When creating new PRs from a fork please review the following items:
-| PR Contribution Requirements/Tasks                                                                                                                    | Required<br/>for Branches | Required<br/>for Forks |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------:|:----------------------:|
-| The action code does not contain sensitive information.                                                                                               |            Yes            |          Yes           |
-| For major or minor changes, at least one of the commit messages contains the appropriate `+semver:` keywords listed under [Incrementing the Version]. |            Yes            |          Yes           |
-| The action has been re-compiled.  See [Recompiling Manually] for more details.                                                                        |            No*            |          Yes           |
-| The README.md action versions have been updated.  See [Updating the README.md] for details.                                                           |            No*            |          Yes           |
+When creating PRs, please review the following guidelines:
 
-\* When a pull request is created from a branch, the build workflow will automatically recompile the action, update the README.md with the next version and push a commit to the branch if those changes have not already been made.
+- [ ] The action code does not contain sensitive information.
+- [ ] At least one of the commit messages contains the appropriate `+semver:` keywords listed under [Incrementing the Version] for major and minor increments.
+- [ ] The action has been recompiled.  See [Recompiling Manually] for details.
+- [ ] The README.md has been updated with the latest version of the action.  See [Updating the README.md] for details.
 
 ### Incrementing the Version
 
-This repo uses [git-version-lite] in its build and PR merge workflows to examine commit messages to determine whether to perform a major, minor or patch increment on merge.  The following table provides the fragment that should be included in a commit message to active different increment strategies.
+This repo uses [git-version-lite] in its workflows to examine commit messages to determine whether to perform a major, minor or patch increment on merge if [source code] changes have been made.  The following table provides the fragment that should be included in a commit message to active different increment strategies.
 
 | Increment Type | Commit Message Fragment                     |
 |----------------|---------------------------------------------|
@@ -115,33 +113,26 @@ This repo uses [git-version-lite] in its build and PR merge workflows to examine
 | minor          | +semver:minor                               |
 | patch          | *default increment type, no comment needed* |
 
-If a contributor is unsure what the next version will be, create a PR and the first build workflow that runs will calculate the value.
+### Source Code Changes
+
+The files and directories that are considered source code are listed in the `files-with-code` and `dirs-with-code` arguments in both the [build-and-review-pr] and [increment-version-on-merge] workflows.  
+
+If a PR contains source code changes, the README.md should be updated with the latest action version and the action should be recompiled.  The [build-and-review-pr] workflow will ensure these steps are performed when they are required.  The workflow will provide instructions for completing these steps if the PR Author does not initially complete them.
+
+If a PR consists solely of non-source code changes like changes to the `README.md` or workflows under `./.github/workflows`, version updates and recompiles do not need to be performed.
 
 ### Recompiling Manually
 
-If changes are made to the action's code in this repository, or its dependencies, the action can be re-compiled by running the following command:
+This command utilizes [esbuild] to bundle the action and its dependencies into a single file located in the `dist` folder.  If changes are made to the action's [source code], the action must be recompiled by running the following command:
 
 ```sh
 # Installs dependencies and bundles the code
 npm run build
-
-# Bundle the code (if dependencies are already installed)
-npm run bundle
 ```
-
-These commands utilize [esbuild] to bundle the action and its dependencies into a single file located in the `dist` folder.
-
-This step does not need to be completed if only ancillary files like the README.md have been changed.
-
-If a pull request is made from a branch, this step will be automatically performed by the build workflow unless the PR author has already done so.  Pull requests made from forked repositories will need to perform this step manually.  
 
 ### Updating the README.md
 
-If changes are made to the action's source code, the README.md file should be updated to reflect the next version of the action.  Each instance of the action in the examples should be updated.  This helps users know what the latest tag is without having to navigate to the Tags page of the repository.
-
-This step does not need to be completed if only ancillary files like the README.md have been changed.
-
-If a pull request is made from a branch, this step will be automatically performed by the build workflow unless the PR author has already done so.  Pull requests made from forked repositories will need to perform this step manually.  See [Incrementing the Version] for details on how to determine what the next version will be.
+If changes are made to the action's [source code], the [usage examples] section of this file should be updated with the next version of the action.  Each instance of this action should be updated.  This helps users know what the latest tag is without having to navigate to the Tags page of the repository.  See [Incrementing the Version] for details on how to determine what the next version will be or consult the first workflow run for the PR which will also calculate the next version.
 
 ## Code of Conduct
 
@@ -156,3 +147,7 @@ Copyright &copy; 2023, Extend Health, LLC. Code released under the [MIT license]
 [Incrementing the Version]: #incrementing-the-version
 [Recompiling Manually]: #recompiling-manually
 [Updating the README.md]: #updating-the-readmemd
+[build-and-review-pr]: ./.github/workflows/build-and-review-pr.yml
+[increment-version-on-merge]: ./.github/workflows/increment-version-on-merge.yml
+[source code]: #source-code-changes
+[usage examples]: #usage-examples
