@@ -49,11 +49,13 @@ jobs:
       # The files that contain source code for the action.  Only files that affect the action's execution
       # should be included like action.yml or package.json.  Do not include files like README.md or .gitignore.
       # Files do not need to be explicitly provided here if they fall under one of the dirs in dirs-with-code.
+      # The format of this input is a comma-separated string.
       # ** This value must match the same files-with-code argument specified in increment-version-on-merge.yml.
       files-with-code: 'action.yml,package.json,package-lock.json' # TODO:  Update if there are additional files or scripts.  
 
       # The directories that contain source code for the action.  Only dirs with files that affect the action's
       # execution should be included like src or dist.  Do not include dirs like .github or node_modules.
+      # The format of this input is a comma-separated string.
       # ** This value must match the same dirs-with-code argument specified in increment-version-on-merge.yml.
       dirs-with-code: 'src,dist' # TODO:  Update if there are additional directories with code for the action.  
 
