@@ -2,20 +2,21 @@
 
 This template can be used to quickly start a new custom js action repository.  Click the `Use this template` button at the top to get started.
 
-## Index
+## Index <!-- omit in toc -->
 
-- [Inputs](#inputs)
-- [Outputs](#outputs)
-- [Usage Examples](#usage-examples)
-- [Contributing](#contributing)
-  - [Incrementing the Version](#incrementing-the-version)
-  - [Source Code Changes](#source-code-changes)
-  - [Recompiling Manually](#recompiling-manually)
-  - [Updating the README.md](#updating-the-readmemd)
-- [Code of Conduct](#code-of-conduct)
-- [License](#license)
+- [javascript-action-template](#javascript-action-template)
+  - [Inputs](#inputs)
+  - [Outputs](#outputs)
+  - [Usage Examples](#usage-examples)
+  - [Contributing](#contributing)
+    - [Incrementing the Version](#incrementing-the-version)
+    - [Source Code Changes](#source-code-changes)
+    - [Recompiling Manually](#recompiling-manually)
+    - [Updating the README.md](#updating-the-readmemd)
+  - [Code of Conduct](#code-of-conduct)
+  - [License](#license)
 
-## TODOs
+## TODOs <!-- omit in toc -->
 
 - README.md
   - [ ] Update the Inputs section with the correct action inputs
@@ -142,12 +143,13 @@ This project has adopted the [im-open's Code of Conduct](https://github.com/im-o
 
 Copyright &copy; 2023, Extend Health, LLC. Code released under the [MIT license](LICENSE).
 
-[git-version-lite]: https://github.com/im-open/git-version-lite
-[esbuild]: https://esbuild.github.io/getting-started/#bundling-for-node
+ <!-- Links -->
 [Incrementing the Version]: #incrementing-the-version
 [Recompiling Manually]: #recompiling-manually
+[source code]: #source-code-changes
 [Updating the README.md]: #updating-the-readmemd
+[usage examples]: #usage-examples
 [build-and-review-pr]: ./.github/workflows/build-and-review-pr.yml
 [increment-version-on-merge]: ./.github/workflows/increment-version-on-merge.yml
-[source code]: #source-code-changes
-[usage examples]: #usage-examples
+[esbuild]: https://esbuild.github.io/getting-started/#bundling-for-node
+[git-version-lite]: https://github.com/im-open/git-version-lite
