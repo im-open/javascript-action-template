@@ -51,14 +51,49 @@ jobs:
       # Files do not need to be explicitly provided here if they fall under one of the dirs in dirs-with-code.
       # The format of this input is a comma-separated string.
       # ** This value must match the same files-with-code argument specified in increment-version-on-merge.yml.
-      files-with-code: 'action.yml,package.json,package-lock.json' # TODO:  Update if there are additional files or scripts.  
+      files-with-code: 'action.yml,package.json,package-lock.json' # TODO:  Update if there are additional files or scripts.
 
       # The directories that contain source code for the action.  Only dirs with files that affect the action's
       # execution should be included like src or dist.  Do not include dirs like .github or node_modules.
       # The format of this input is a comma-separated string.
       # ** This value must match the same dirs-with-code argument specified in increment-version-on-merge.yml.
-      dirs-with-code: 'src,dist' # TODO:  Update if there are additional directories with code for the action.  
+      dirs-with-code: 'src,dist' # TODO:  Update if there are additional directories with code for the action.
 
       # The npm script to run to build the action.  This is typically 'npm run build' if the
       # action needs to be compiled.  For composite-run-steps actions this is typically empty.
       build-command: 'npm run build' # TODO:  Update if a different command is used to build/recompile/format the action
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      #--------------------------------------
+      # Setup
+      #--------------------------------------
+      - uses: actions/checkout@v3
+      # TODO:  add any additional steps needed to setup the test scenarios
+
+      # TODO:  Replace with the scenarios needed to test this action
+
+      #--------------------------------------
+      # SCENARIO 1
+      #--------------------------------------
+      - name: '-------------------------------------------------------------------------------------------------------'
+        run: echo ""
+
+      - name: When the repo is 'im-open/javascript-action-template'
+        if: always()
+        id: repo-check
+        run: |
+          if [ "${{ github.repository }}" != "im-open/javascript-action-template" ]; then
+            exit 1
+          else
+            echo "SUCCESS=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Then the outcome should be success
+        if: always()
+        run: ./test/assert-values-match.sh --name "step outcome" --expected "success" --actual "${{ steps.repo-check.outcome }}"
+
+      - name: And the SUCCESS output should be true
+        if: always()
+        run: ./test/assert-values-match.sh --name "SUCCESS output" --expected "true" --actual "${{ steps.repo-check.outputs.SUCCESS }}"
