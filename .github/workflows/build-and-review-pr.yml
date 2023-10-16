@@ -69,7 +69,18 @@ jobs:
       #--------------------------------------
       # Setup
       #--------------------------------------
-      - uses: actions/checkout@v3
+
+      # TODO:  Uncomment if forked PRs won't have the correct access to run because they need secrets or write scopes
+      # - name: Setup - Fail test job if fork
+      #   run: |
+      #     if [ "${{ github.event.pull_request.head.repo.fork }}" == "true" ]; then
+      #       echo "This test job requires secrets or write scopes that PRs from forks will not have access to.  Before this PR can be merged, the tests should be run on an intermediate branch created by repository owners."
+      #       exit 1
+      #     fi
+
+      - name: Setup - Checkout action
+        uses: actions/checkout@v3
+
       # TODO:  add any additional steps needed to setup the test scenarios
 
       # TODO:  Replace with the scenarios needed to test this action

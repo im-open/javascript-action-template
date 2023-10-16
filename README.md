@@ -23,6 +23,7 @@ This template can be used to quickly start a new custom js action repository.  C
   - [ ] Update the Inputs section with the correct action inputs
   - [ ] Update the Outputs section with the correct action outputs
   - [ ] Update the Usage Example section with the correct usage
+  - [ ] Update the Tests section with the correct fork info
 - package.json
   - [ ] Update the `name` with the new action value
 - src/main.js
@@ -139,7 +140,14 @@ If changes are made to the action's [source code], the [usage examples] section 
 
 ### Tests
 
-The build and review PR workflow includes tests which are linked to a status check that needs to succeed before a PR is merged to the default branch.  When a PR comes from a branch there should not be any issues running the tests.  When a PR comes from a fork, tests may not have the required permissions or access to run since the `GITHUB_TOKEN` only has `read` access set for all scopes and fork's cannot access other secrets in the repository.  In these scenarios, a fork may need to be merged into an intermediate branch by the repository owners to ensure the tests run successfully prior to a merge to the default branch.
+<!-- 
+TODO:  Select the appropriate description for tests in this repository:
+########
+The [build-and-review-pr] workflow includes tests which are linked to a status check. That status check needs to succeed before a PR is merged to the default branch.  The tests do not need special permissions, so they should succeed whether they come from a branch or a fork.
+########
+The [build-and-review-pr] workflow includes tests which are linked to a status check. That status check needs to succeed before a PR is merged to the default branch.  When a PR comes from a branch, the workflow has access to secrets and `GITHUB_TOKEN` write scopes so they should run without issue.
+
+When a PR comes from a fork, the workflow cannot access any secrets and the `GITHUB_TOKEN` only has read scopes, so tests won't have the necessary permissions to run. When a PR comes from a fork, the changes should be reviewed, then merged into an intermediate branch by repository owners so tests can be run against the PR changes.  Once the tests have passed, changes can be merged into the default branch. -->
 
 ## Code of Conduct
 
