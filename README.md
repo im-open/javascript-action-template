@@ -1,3 +1,7 @@
+# Tests
+
+Force tests to run from a fork to see what happens
+
 # javascript-action-template
 
 This template can be used to quickly start a new custom js action repository.  Click the `Use this template` button at the top to get started.
